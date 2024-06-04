@@ -1,203 +1,497 @@
-//alert("java Script is working");
 
-let books =  [
-  {image: "images/img1.webp",
-  title: "Swan Song", 
-  author:"by Elin Hilderbrand"}, 
- {image: "images/img2.webp",
-  title: "Onix Storm",
-   author:"by Rebecca Yarros"}, 
- {image: "images/img3.webp",
-  title: "Not in Love",
-   author:"by Ali Hazelwood"},
-  {image: "images/img4.webp",
-   title: "Learher & Lark",
-    author:"by Brynne Weaver"},
-    {image: "images/img5.webp",
-    title: "Reckless",
-     author:"by Lauren Roberts"},
-     {image: "images/img6.webp",
-     title: "Good Energy",
-      author:"by Casey Means MD,"},
-      {image: "images/img7.webp",
+let books = [
+    {
+      id: 1,
+      image: "images/img1.webp",
+      title: "Swan Song",
+      author: "Elin Hilderbrand",
+    },
+    {
+      id: 2,
+      image: "images/img2.webp",
+      title: "Onix Storm",
+      author: "Rebecca Yarros",
+    },
+    {
+      id: 3,
+      image: "images/img3.webp",
+      title: "Not in Love",
+      author: "Ali Hazelwood",
+    },
+    {
+      id: 4,
+      image: "images/img4.webp",
+      title: "Learher & Lark",
+      author: "Brynne Weaver",
+    },
+    {
+      id: 5,
+      image: "images/img5.webp",
+      title: "Reckless",
+      author: "Lauren Roberts",
+    },
+    {
+      id: 6,
+      image: "images/img6.webp",
+      title: "Good Energy",
+      author: "Casey Means MD",
+    },
+    {
+      id: 7,
+      image: "images/img7.webp",
       title: "Zodiac Academy",
-       author:"by Caroline Peckham"},
-       {image: "images/img8.webp",
-       title: "The Women",
-        author:"by Kristin Hannah"},
-        {image: "images/img9.webp",
-        title: "Murdle",
-         author:"by G. T. Karber"},
-         {image: "images/img10.webp",
-         title: "Skyshade",
-          author:"by Alex Aster"},
-          {image: "images/img11.webp",
-          title: "You Like It Darker",
-           author:"by Stephen King"},
-           {image: "images/img12.webp",
-           title: "Let's Find Pokemon",
-            author:"by Kazunori Aihara"}, 
-          {image: "images/img13.webp",
-           title: "Eruption",
-            author:"by Michael Crichton"},
-           {image: "images/img.14",
-            title: "Misfits",
-             author:"by Lisa Yee"},
-             {image: "images/img.15",
-             title: "i live inside a while",
-              author:"by Xin Li"},
-              {image: "images/img.16",
-              title: "Shameless",
-               author:"by Brian Tyler Cohen"},
-               {image: "images/img.17",
-               title: "Hounting Adeline",
-                author:"by H. D. Carlton"},
-                {image: "images/img.18",
-                title: "A Demon of unrest",
-                 author:"by Erik Larson"},
-                 {image: "images/img.19",
-                 title: "Bits and Pieces",
-                  author:"by Whoopi Goldberg"},
-                  {image: "images/img.20",
-                  title: "An offer from a gentelmen",
-                   author:"by Julia Quinn"},
-                   {image: "images/img.21",
-                   title: "Powerfull",
-                   author:"by Lauren Roberts"}];
-
-
- 
-
-
-
-
-          
-
-function displayBooks(books) {
-  const bookList = document.getElementById('bookList');
-  bookList.innerHTML = ''; // Clear any existing content
-
-  if (books.length === 0) {
-      bookList.innerHTML = '<p>No books found</p>';
-      return;
-  }
-
-  books.forEach(book => {
-      const bookItem = document.createElement('div');
-      bookItem.classList.add('book-item');
-      bookItem.innerHTML = `
-          <img src="${book.url}" alt="${book.title}">
-          <div>
-              <h2>${book.title}</h2>
-              <p><strong>Author:</strong> ${book.author}</p>
-              <p>${book.description}</p>
-              <p><strong>Rating:</strong> ${book.rating}</p>
-              <button onclick="viewReviews('${book.title}')">View Reviews</button>
-              <button onclick="addReview('${book.title}')">Add Review</button>
-          </div>
+      author: "Caroline Peckham",
+    },
+    {
+      id: 8,
+      image: "images/img8.webp",
+      title: "The Women",
+      author: "Kristin Hannah",
+    },
+    { id: 9, image: "images/img9.webp", title: "Murdle", author: "G. T. Karber" },
+    {
+      id: 10,
+      image: "images/img10.webp",
+      title: "Skyshade",
+      author: "Alex Aster",
+    },
+    {
+      id: 11,
+      image: "images/img11.webp",
+      title: "You Like It Darker",
+      author: "Stephen King",
+    },
+    {
+      id: 12,
+      image: "images/img12.webp",
+      title: "Let's Find Pokemon",
+      author: "Kazunori Aihara",
+    },
+    {
+      id: 13,
+      image: "images/img13.webp",
+      title: "Eruption",
+      author: "Michael Crichton",
+    },
+    { id: 14, image: "images/img14.webp", title: "Misfits", author: "Lisa Yee" },
+    {
+      id: 15,
+      image: "images/img15.webp",
+      title: "i live inside a while",
+      author: "Xin Li",
+    },
+    {
+      id: 16,
+      image: "images/img16.webp",
+      title: "Shameless",
+      author: "Brian Tyler Cohen",
+    },
+    {
+      id: 17,
+      image: "images/img17.webp",
+      title: "Haunting Adeline",
+      author: "H. D. Carlton",
+    },
+    {
+      id: 18,
+      image: "images/img18.webp",
+      title: "A Demon of Unrest",
+      author: "Erik Larson",
+    },
+    {
+      id: 19,
+      image: "images/img19.webp",
+      title: "Bits and Pieces",
+      author: "Whoopi Goldberg",
+    },
+    {
+      id: 20,
+      image: "images/img20.webp",
+      title: "An Offer from a Gentleman",
+      author: "Julia Quinn",
+    },
+    {
+      id: 21,
+      image: "images/img21.webp",
+      title: "Powerful",
+      author: "Lauren Roberts",
+    },
+  ];
+  
+  
+  function booksDisplayed() {
+    const bookContainer = document.getElementById("bookSection"); 
+    bookContainer.classList.remove("hidden");  //Made books on first page visible, everything else is hidden with added classes "hidden" to other elements; 
+    bookContainer.innerHTML = "";
+    books.forEach((book) => {
+      const bookList = document.createElement("ul");
+      bookList.classList.add("bookList");
+      bookList.setAttribute("id", `book-${book.id}`);
+      bookList.innerHTML += `
+        <li><img src="${book.image}"></li>
+        <li class="book-title" id="title-${book.id}" contenteditable="true">${book.title}</li>
+        <li class="book-author" id="author-${book.id}" contenteditable="true">${book.author}</li>
+        <li class="li-buttons">
+          <button id="fav-btn-${book.id}" onclick="toggleFavorite(${book.id}, 'fav-btn-${book.id}')">Add to Favorites <i class="fa-regular fa-heart"></i></button>
+          <button onclick="removeBook(${book.id})" class="remove-button"><i class="fa-regular fa-trash-can"></i></button>
+        </li>
       `;
-      bookList.appendChild(bookItem);
-  });
-}
-// Assuming books array is defined
-displayBooks(books);
-
-// script.js
-
-document.getElementById('searchButton').addEventListener('click', () => {
-  const searchTerm = document.getElementById('searchInput').value;
-  if (searchTerm) {
-      // Perform search and filter books (assuming you have a searchBooks function)
-      const filteredBooks = books.filter(book => 
-          book.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      displayBooks(filteredBooks);
+      bookContainer.appendChild(bookList);
+  
+      const bookTitleElement = document.getElementById(`title-${book.id}`);
+      if (bookTitleElement) {
+        bookTitleElement.addEventListener('input', function (event) {
+          const bookTitle = event.target.textContent;
+          book.title = bookTitle;
+        });
+      }
+      const bookAuthorElement = document.getElementById(`author-${book.id}`);
+      if (bookAuthorElement) {
+        bookAuthorElement.addEventListener('input', function (event) {
+          const bookAuthor = event.target.textContent;
+          book.author = bookAuthor;
+        });
+      }
+    });
   }
+  
+  document.addEventListener("DOMContentLoaded", booksDisplayed);
+  
+  function removeBook(bookId) {
+    books = books.filter((book) => book.id !== bookId);
+    const bookElement = document.getElementById(`book-${bookId}`);
+    if (bookElement) {
+      bookElement.remove();
+    }
+    if (favoriteBooksIds.has(bookId)) {
+      removeFromFavorites(bookId, `fav-btn-${bookId}`);
+    }
+  }
+  
+  const searchButton = document.getElementById("searchButton");
+  
+  searchButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const bookContainer = document.getElementById("bookSection"); 
+    bookContainer.classList.add("hidden"); 
+    const bookResults = document.getElementById("bookResults");
+    bookResults.classList.remove("hidden"); 
+    const searchInput = document.getElementById("searchInput").value.toLowerCase().trim();
+  
+    let filteredBooks = books.filter((book) => {
+      return (
+        book.title.toLowerCase().includes(searchInput) ||
+        book.author.toLowerCase().includes(searchInput)
+      );
+    });
+  
+    if (!searchInput) {
+      bookResults.textContent = "Please enter a book or author that you want to review.";
+      return;
+    }
+  
+    bookResults.innerHTML = "";
+    if (filteredBooks.length > 0) {
+      filteredBooks.forEach((book) => {
+        const foundBooksImage = document.createElement("div");
+        foundBooksImage.classList.add("foundBooksImage");
+        foundBooksImage.innerHTML += `<img class="foundBooksImg" src="${book.image}">`;
+  
+        const foundBooksText = document.createElement("div");
+        foundBooksText.classList.add("foundBooksText");
+        foundBooksText.innerHTML += `
+          <h1 class="book-title">${book.title}</h1>
+          <h2 class="book-author">${book.author}</h2>
+          <button id="search-fav-btn-${book.id}" onclick="toggleFavorite(${book.id}, 'search-fav-btn-${book.id}')">Add to Favorites <i class="fa-regular fa-heart"></i></button>
+        `;
+  
+        bookResults.appendChild(foundBooksImage);
+        bookResults.appendChild(foundBooksText);
+      });
+  
+      const reviewField = document.createElement("input");
+      reviewField.setAttribute("type", "text");
+      reviewField.setAttribute("id", "reviewField");
+      bookResults.appendChild(reviewField);
+  
+      let saveButton = document.createElement("button");
+      saveButton.setAttribute("id", "addReview");
+      saveButton.innerText = "Add Review";
+      bookResults.appendChild(saveButton);
+  
+      let addReview = document.getElementById("addReview");  
+      addReview.addEventListener("click", function () {
+        let reviewField = document.getElementById("reviewField");
+        let reviewContainer = document.createElement("div");
+        reviewContainer.className = "deleteSection";
+        let review = document.createElement("p");
+  
+        review.innerText = `${reviewField.value}`;
+  
+        reviewContainer.appendChild(review);
+  
+        let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "deleteReview");
+        deleteButton.innerText = "Delete Review";
+        reviewContainer.appendChild(deleteButton);
+  
+        if (reviewField.value === "") {
+          alert("Please Enter Review");
+          return;
+        } else {
+          bookResults.appendChild(reviewContainer);
+          filteredBooks.forEach((book) => (book.review = reviewField.value));
+        }
+        reviewField.value = "";
+  
+        deleteButton.addEventListener("click", function () {
+          reviewContainer.remove();
+        });
+      });
+    } else {
+      bookResults.textContent = "No books with that title/author found.";
+    }
+  });
+  //========================================
+  document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('reviewForm');
+    const bookTitle = document.getElementById('bookTitle');
+    const reviewText = document.getElementById('reviewText');
+    const savedReviewsList = document.getElementById('savedReviewsList');
+
+    let reviews = [];
+
+    reviewForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const review = {
+            title: bookTitle.value,
+            text: reviewText.value,
+        
+        };
+
+        reviews.push(review);
+        displayReviews();
+
+        reviewForm.reset();
+    });
+
+    function displayReviews() {
+        savedReviewsList.innerHTML = '';
+
+        reviews.forEach((review, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>${review.title}</strong>
+                <p>${review.text}</p>
+                <button class="delete-button" data-index="${index}">Delete</button>
+            `;
+            savedReviewsList.appendChild(li);
+
+            const deleteButton = li.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                reviews.splice(index, 1);
+                displayReviews();
+            });
+        });
+    }
 });
 
-function displayBooks(books) {
-  const bookList = document.getElementById('bookList');
-  bookList.innerHTML = ''; // Clear any existing content
-
-  if (books.length === 0) {
-      bookList.innerHTML = '<p>No books found</p>';
-      return;
-  }
-
-  books.forEach(book => {
-      const bookItem = document.createElement('div');
-      bookItem.classList.add('book-item');
-      bookItem.innerHTML = `
-          <img src="${book.url}" alt="${book.title}">
-          <div>
-              <h2>${book.title}</h2>
-              <p><strong>Author:</strong> ${book.author}</p>
-
-
-              <button onclick="viewReviews('${book.title}')">View Reviews</button>
-              <button onclick="addReview('${book.title}')">Add Review</button>
-          </div>
-      `;
-      bookList.appendChild(bookItem);
-  });
-}
-
-function viewReviews(bookTitle) {
-  // Implementation for viewing reviews
-}
-
-function addReview(bookTitle) {
-  // Implementation for adding a review
-}
-
+  //========================================
   
-                  
-
-
-
-
-//function searchBooks() {
-  //  const searchTerm = searchInput.value.trim().toLowerCase();
-    //if (searchTerm === '') {
-    //    alert('Please enter a search term');
-      //  return;
-    //}
-    //const filteredBooks = books.filter(book => {
-       
-     //   const titleLower = book.title.toLowerCase();
-      //  if (titleLower.includes(searchTerm)) {
-       //     return true;
-      //  }
-       
+  const favoriteBooksIds = new Set();
+  
+  function toggleFavorite(bookId, buttonId) {
+    if (favoriteBooksIds.has(bookId)) {
+      removeFromFavorites(bookId, buttonId);
+    } else {
+      addToFavorites(bookId, buttonId);
+    }
+  }
+  
+  function addToFavorites(bookId, buttonId) {
     
-   // });
-  //  displayBooks(filteredBooks);
-//};
-
-//function displayBooks(books) {
- //   bookList.innerHTML = '';
- //   if (books.length === 0) {
-  //      bookList.innerHTML = 'No books found';
-   //     return;
-   // }
-
-  //  books.forEach(book => {
-   //     const bookItem = document.createElement('div');
-   //     bookItem.classList.add('book-item');
-   //     bookItem.innerHTML = `
-    //        <h3>${book.title}</h3>
-    //        <p>${book.author}</p>
-    //        <img src="${book.image}" alt="${book.title}">
-     //       <button class="save-button" onclick="saveRecipe('${book.title}')">Save</button>
-     //   `;
-     //   bookList.appendChild(bookItem);
-   // });
-//}
-
-
-
-
-
-
-
-
+    const book = books.find((book) => book.id === bookId);
+    if (!book || favoriteBooksIds.has(bookId)) return;
+  
+    const favoriteBooksList = document.getElementById("favorites");
+    favoriteBooksList.classList.remove("hidden");
+    const favHeader = document.getElementById("favorites-h");
+    favHeader.classList.remove("hidden");
+    const clonedBooks = document.createElement("ul");
+  
+    clonedBooks.className = "bookList hidden";
+    clonedBooks.classList.remove("hidden");
+    clonedBooks.setAttribute("id", `favoriteBook-${bookId}`); 
+    clonedBooks.innerHTML = `
+      <li><img src="${book.image}"></li>
+      <li class="book-title">${book.title}</li>
+      <li class="book-author">${book.author}</li>
+      ${book.review ? `<li><i>Review: ${book.review}</i></li>` : ""}
+      <li><button id="removeFromFavorites" onclick="removeFromFavorites(${bookId}, 'fav-btn-${bookId}', 'search-fav-btn-${bookId}')">Remove from favorites</button></li>
+    `;
+  
+    favoriteBooksList.appendChild(clonedBooks);
+  
+    favoriteBooksIds.add(bookId);
+  
+    updateFavoriteButton(buttonId, true);
+  }
+  
+  function removeFromFavorites(bookId, homeButtonId, searchButtonId) {
+    favoriteBooksIds.delete(bookId);
+  
+    const favoriteBookElement = document.getElementById(`favoriteBook-${bookId}`);
+    if (favoriteBookElement) {
+      favoriteBookElement.remove();
+    }
+  
+    updateFavoriteButton(homeButtonId, false);
+    updateFavoriteButton(searchButtonId, false);
+  
+    if (favoriteBooksIds.size === 0) {
+      document.getElementById("favorites-h").classList.add("hidden");
+    }
+  }
+  
+  function updateFavoriteButton(buttonId, isFavorite) {
+    const favButton = document.getElementById(buttonId);
+    if (favButton) {
+      favButton.innerHTML = isFavorite
+        ? 'Added to Favorites <i class="fas fa-heart"></i>'
+        : 'Add to Favorites <i class="fa-regular fa-heart"></i>';
+      favButton.style.backgroundColor = isFavorite ? 'grey' : '';
+    }
+  }
+  
+  const favoritesLink = document.getElementById("favoritesLink");
+  favoritesLink.addEventListener("click", () => {
+    document.getElementById("favorites").classList.remove("hidden"); //working 
+    document.getElementById("bookSection").classList.add("hidden");
+  });
+  
+  const homePage = document.getElementById("homePage");
+  homePage.addEventListener("click", () => {
+    document.getElementById("bookSection").classList.remove("hidden");
+    document.getElementById("bookResults").classList.add("hidden");  //working 
+  });
+  
+  
+  const savedReviewLink = document.getElementById("savedReviewLink");  //not working 
+  savedReviewLink.addEventListener("click", () => {
+    document.getElementById("saved-review").classList.remove("hidden");
+    document.getElementById("bookSection").classList.add("hidden");
+    document.getElementById("bookResults").classList.add("hidden");
+  });
+  
+  document.getElementById("newBookForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+  
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const image = document.getElementById("image").value;
+    const newBook = {
+      id: books.length + 1, // Ensure new books have a unique ID
+      title,
+      author,
+      image,
+    };
+  
+    books.push(newBook);
+    booksDisplayed(books);
+  
+    document.getElementById("newBookForm").reset();
+  });
+  
+  const toggleButton = document.querySelector("#check");
+  const body = document.querySelector(".bookSection");
+  const header = document.querySelector(".header");
+  const footer = document.querySelector(".footer");
+  const favoriteSection = document.querySelector(".fav");
+  const search = document.querySelector(".searchButton");
+  const saved = document.getElementById("saved-review");
+  const bar = document.querySelector(".bar")
+  const query = window.matchMedia("(max-width: 1501px)");
+  console.log(query)
+  
+  function changeBackground() {
+    const bodyColor = "linear-gradient(to bottom, #ff3333 0%, #993333 56%)";
+    const headerColor = "linear-gradient(to top, #ff3333 0%, #822626 15%)";
+    const footerColor = "#993333";
+    const searchColor = "#ffa7a7";
+  
+    if (toggleButton.checked) {
+      body.style.background = bodyColor;
+      header.style.background = headerColor;
+      footer.style.backgroundColor = footerColor;
+      favoriteSection.style.background = bodyColor;
+      search.style.backgroundColor = searchColor;
+      saved.style.background = bodyColor;
+      bar.style.backgroundColor = searchColor;
+      if (query.matches){
+      navMenu.style.background = "linear-gradient(to bottom, #822626 0%, #ff3333 56%";
+      } else {
+        navMenu.style.background = "none";
+      };
+    }
+     else {
+      body.style.background = "linear-gradient(to bottom, #33ccff 19%, #333399 89%)";
+      header.style.background = "linear-gradient(to top, #33ccff 0%, #333399 15%)"; 
+      footer.style.backgroundColor = "#333399";
+      favoriteSection.style.background = "linear-gradient(to bottom, #33ccff 19%, #333399 89%)";
+      search.style.backgroundColor = "#f6de74";
+      saved.style.background = "linear-gradient(to bottom, #33ccff 19%, #333399 89%)";
+      bar.style.backgroundColor = "#f6de74"
+      if (query.matches) {
+      navMenu.style.background = "linear-gradient(to bottom, #333399 0%, #33ccff 50%";
+      } else {
+        navMenu.style.background = "none";
+      };
+      
+    }
+  };
+  toggleButton.onclick = changeBackground;
+  
+  function setCurrentYear() {
+    const currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = currentYear;
+  }
+  
+  document.addEventListener("DOMContentLoaded", setCurrentYear());
+  
+  // add button to scrole to top
+  let mybutton = document.getElementById("scrollToTopBtn");
+  
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  mybutton.addEventListener("click", function() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  });
+  
+  
+  // hamburger menu 
+  
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  console.log(navMenu)
+  const navLink = document.querySelectorAll(".nav-link")
+  document.addEventListener('DOMContentLoaded', () => {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle("active")
+        navMenu.classList.toggle("active");
+    });
+    navLink.forEach(n => n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }))
+  });
+  
+  //test 
